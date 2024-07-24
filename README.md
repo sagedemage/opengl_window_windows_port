@@ -3,10 +3,10 @@ Setup guide to setup OpenGL on Windows with Visual Studio 2022.
 
 Download GLFW Windows precompiled binary: https://www.glfw.org/download
 
-Download Glew Windows precompiled binary: https://glew.sourceforge.net/
+Download GLEW Windows precompiled binary: https://glew.sourceforge.net/
 
-## 1. Download the SDL and SDL_mixer Development Libaries
-1. Go to this page to download the lastest GLFW and Glew VC++ development libaries:
+## 1. Download the GLFW and GLEW Development Libaries
+1. Go to this page to download the lastest GLFW and GLEW VC++ development libaries:
     - https://www.glfw.org/download
     - https://glew.sourceforge.net/
 
@@ -50,7 +50,7 @@ C:\vclib\glew-2.1.0\lib\Release\x64
 C:\vclib\glfw-3.4.bin.WIN64\lib-vc2022
 ```
 
-## 3. Setup Environmental Variables for SDL and SDL_mixer
+## 3. Setup Environmental Variables for GLFW and GLEW
 1. Go to Settings -> Search and click *Edit the system environment variables* -> Click *Environment Variables*
 
 2. Edit the **Path** under the *System varables*:
