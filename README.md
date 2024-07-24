@@ -3,7 +3,7 @@ Setup guide to setup OpenGL on Windows with Visual Studio 2022.
 
 Download GLFW Windows precompiled binary: https://www.glfw.org/download
 
-Download Glew Windows precompiled binary: https://glew.sourceforge.net/
+Download GLEW Windows precompiled binary: https://glew.sourceforge.net/
 
 ## 1. Download the GLFW and GLEW Development Libaries
 1. Go to this page to download the lastest GLFW and GLEW VC++ development libaries:
