@@ -1,9 +1,7 @@
 # OpenGL Window - Windows Port
-Port of the OpenGL window on Windows. There is a setup guide to setup OpenGL with Visual Studio 2022 on Windows.
+Port of the OpenGL window on Windows. There is a setup guide to setup OpenGL with Visual Studio 2022 for Windows.
 
-Download GLFW Windows precompiled binary: https://www.glfw.org/download
-
-Download GLEW Windows precompiled binary: https://glew.sourceforge.net/
+![OpengGL Window](./screenshots/opengl_window.webp)
 
 ## 1. Download the GLFW and GLEW Development Libaries
 1. Go to this page to download the lastest GLFW and GLEW VC++ development libaries:
