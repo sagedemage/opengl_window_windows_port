@@ -1,5 +1,5 @@
-# OpenGL Window - Windows Setup
-Setup guide to setup OpenGL on Windows with Visual Studio 2022.
+# OpenGL Window - Windows Port
+Port of the OpenGL window on Windows. There is a setup guide to setup OpenGL with Visual Studio 2022 on Windows.
 
 Download GLFW Windows precompiled binary: https://www.glfw.org/download
 
