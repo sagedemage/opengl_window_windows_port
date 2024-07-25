@@ -1,5 +1,5 @@
 # OpenGL Window - Windows Port
-Port of the OpenGL window on Windows. There is a setup guide to setup OpenGL with Visual Studio 2022 on Windows.
+Port of the OpenGL window on Windows. There is a setup guide to setup OpenGL with Visual Studio 2022 for Windows.
 
 ![OpengGL Window](./screenshots/opengl_window.webp)
 
