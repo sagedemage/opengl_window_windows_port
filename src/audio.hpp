@@ -6,25 +6,24 @@
 #include <SDL_mixer.h>
 
 /* Standard Libaries */
-#include <string>
 #include <fstream>
-#include <sstream>
 #include <iostream>
+#include <sstream>
+#include <string>
 
-class Audio
-{
-public:
-    Audio(const int channels, const int chunksize); // open audio
+class Audio {
+   public:
+    Audio(const int channels, const int chunksize);  // open audio
 
     // Methods
-    void loadMusic(const char* music_path);
+    void loadMusic(const char *music_path);
     void playMusic();
     void changeVolume(const int music_volume);
     void freeResources();
 
-private:
+   private:
     // Variables
-    Mix_Music* music;
+    Mix_Music *music;
 };
 
-#endif // AUDIO_H
+#endif  // AUDIO_H

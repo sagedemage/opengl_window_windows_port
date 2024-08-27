@@ -1,19 +1,21 @@
-// opengl_window_windows_setup.cpp : This file contains the 'main' function. Program execution begins and ends there.
+// opengl_window_windows_setup.cpp : This file contains the 'main' function.
+// Program execution begins and ends there.
 //
 
 /* Standard Libaries */
-#include <string>
-#include <fstream>
-#include <sstream>
-#include <iostream>
 #include <windows.h>
+
+#include <fstream>
+#include <iostream>
+#include <sstream>
+#include <string>
 
 /* Third Party Libraries */
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 
 /* local header files */
-#include "audio.h"
+#include "audio.hpp"
 
 const unsigned int SCREEN_WIDTH = 640;
 const unsigned int SCREEN_HEIGHT = 480;
@@ -35,23 +37,24 @@ std::string get_shader_code(std::string shader_file) {
     return shader_code;
 }
 
-int main(int argc, char *argv[])
-{
+#undef main
+
+int main(int argc, char *argv[]) {
     /* Shader File Path */
-    const char* vertex_shader_path = "shader/shader.vert";
-    const char* fragment_shader_path = "shader/shader.frag";
+    const char *vertex_shader_path = "shader/shader.vert";
+    const char *fragment_shader_path = "shader/shader.frag";
 
     /* Shader Source Code (GLSL code) */
     std::string vertex_shader_string = get_shader_code(vertex_shader_path);
     std::string fragment_shader_string = get_shader_code(fragment_shader_path);
-    const char* vertex_shader_source = vertex_shader_string.c_str();
-    const char* fragment_shader_source = fragment_shader_string.c_str();
+    const char *vertex_shader_source = vertex_shader_string.c_str();
+    const char *fragment_shader_source = fragment_shader_string.c_str();
 
     /* SDL_mixer */
     const int music_volume = 64;
     const int channels = 2;
     const int chunksize = 1024;
-    const char* music_path = "audio/chill.mp3";
+    const char *music_path = "audio/chill.mp3";
 
     // Initialize GLFW
     if (!glfwInit()) {
@@ -59,7 +62,8 @@ int main(int argc, char *argv[])
     }
 
     // Create GLFW Window
-    GLFWwindow* window = glfwCreateWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "OpenGL Window", NULL, NULL);
+    GLFWwindow *window = glfwCreateWindow(SCREEN_WIDTH, SCREEN_HEIGHT,
+                                          "OpenGL Window", NULL, NULL);
 
     if (!window) {
         glfwTerminate();
@@ -72,13 +76,12 @@ int main(int argc, char *argv[])
     GLenum err = glewInit();
 
     if (err != GLEW_OK) {
-        const char* glew_error = (const char*)glewGetErrorString(err);
+        const char *glew_error = (const char *)glewGetErrorString(err);
         std::string glew_error_str(glew_error);
         std::string debug_msg = "Error: " + glew_error_str;
         OutputDebugStringA(debug_msg.c_str());
-    }
-    else {
-        const char* glew_version = (const char*)glewGetString(GLEW_VERSION);
+    } else {
+        const char *glew_version = (const char *)glewGetString(GLEW_VERSION);
         std::string glew_version_str(glew_version);
         std::string debug_msg = "Status: Using GLEW: " + glew_version_str;
         OutputDebugStringA(debug_msg.c_str());
@@ -98,9 +101,10 @@ int main(int argc, char *argv[])
     if (!success) {
         glGetShaderInfoLog(vertexShader, 512, NULL, infoLog);
 
-        const char* info_log_char_p = (const char*)infoLog;
+        const char *info_log_char_p = (const char *)infoLog;
         std::string info_log_str(info_log_char_p);
-        std::string debug_msg = "Error: Vertex Shader Compilation Failed: " + info_log_str;
+        std::string debug_msg =
+            "Error: Vertex Shader Compilation Failed: " + info_log_str;
         OutputDebugStringA(debug_msg.c_str());
     }
 
@@ -113,9 +117,10 @@ int main(int argc, char *argv[])
     if (!success) {
         glGetShaderInfoLog(fragmentShader, 512, NULL, infoLog);
 
-        const char* info_log_char_p = (const char*)infoLog;
+        const char *info_log_char_p = (const char *)infoLog;
         std::string info_log_str(info_log_char_p);
-        std::string debug_msg = "Error: Fragment Shader Compilation Failed: " + info_log_str;
+        std::string debug_msg =
+            "Error: Fragment Shader Compilation Failed: " + info_log_str;
         OutputDebugStringA(debug_msg.c_str());
     }
 
@@ -129,9 +134,10 @@ int main(int argc, char *argv[])
     if (!success) {
         glGetProgramInfoLog(shaderProgram, 512, NULL, infoLog);
 
-        const char* info_log_char_p = (const char*)infoLog;
+        const char *info_log_char_p = (const char *)infoLog;
         std::string info_log_str(info_log_char_p);
-        std::string debug_msg = "Error: Program Shader Compilation Failed: " + info_log_str;
+        std::string debug_msg =
+            "Error: Program Shader Compilation Failed: " + info_log_str;
         OutputDebugStringA(debug_msg.c_str());
     }
     glDeleteShader(vertexShader);
@@ -144,9 +150,9 @@ int main(int argc, char *argv[])
 
     float vertices[] = {
         // positions        // colors
-        -0.5f, -0.5f, 0.0f, 1.0f, 0.0f, 0.0f, // left
-         0.5f, -0.5f, 0.0f, 0.0f, 1.0f, 0.0f, // right
-         0.0f,  0.5f, 0.0f, 0.0f, 0.0f, 1.0f, // top
+        -0.5f, -0.5f, 0.0f, 1.0f, 0.0f, 0.0f,  // left
+        0.5f,  -0.5f, 0.0f, 0.0f, 1.0f, 0.0f,  // right
+        0.0f,  0.5f,  0.0f, 0.0f, 0.0f, 1.0f,  // top
     };
 
     unsigned int VBO, VAO;
@@ -158,11 +164,13 @@ int main(int argc, char *argv[])
     glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
 
     // position attribute
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)0);
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float),
+                          (void *)0);
     glEnableVertexAttribArray(0);
 
     // color attribute
-    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)(3 * sizeof(float)));
+    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float),
+                          (void *)(3 * sizeof(float)));
     glEnableVertexAttribArray(1);
 
     glUseProgram(shaderProgram);
@@ -207,4 +215,3 @@ int main(int argc, char *argv[])
 
     return 0;
 }
-

@@ -1,23 +1,21 @@
-#include "audio.h"
+#include "audio.hpp"
 
-Audio::Audio(const int channels, const int chunksize)
-{
+Audio::Audio(const int channels, const int chunksize) {
     /* Open Audio */
-    int open_audio_status = Mix_OpenAudio(MIX_DEFAULT_FREQUENCY, MIX_DEFAULT_FORMAT, channels, chunksize);
+    int open_audio_status = Mix_OpenAudio(
+        MIX_DEFAULT_FREQUENCY, MIX_DEFAULT_FORMAT, channels, chunksize);
 
     if (open_audio_status == -1) {
         std::cout << "Mix_OpenAudio: " << Mix_GetError() << std::endl;
     }
 }
 
-void Audio::loadMusic(const char* music_path)
-{
+void Audio::loadMusic(const char *music_path) {
     /* Load music */
     music = Mix_LoadMUS(music_path);
 }
 
-void Audio::playMusic()
-{
+void Audio::playMusic() {
     /* Play music */
     int music_status = Mix_PlayMusic(music, -1);
 
@@ -26,8 +24,7 @@ void Audio::playMusic()
     }
 }
 
-void Audio::changeVolume(const int music_volume)
-{
+void Audio::changeVolume(const int music_volume) {
     /* Adjust music volume */
     Mix_VolumeMusic(music_volume);
 }
