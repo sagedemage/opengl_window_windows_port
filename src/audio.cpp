@@ -1,6 +1,6 @@
 #include "audio.hpp"
 
-Audio::Audio(const int channels, const int chunksize) {
+Audio::Audio(int channels, int chunksize) {
     /* Open Audio */
     int open_audio_status = Mix_OpenAudio(
         MIX_DEFAULT_FREQUENCY, MIX_DEFAULT_FORMAT, channels, chunksize);
@@ -10,12 +10,12 @@ Audio::Audio(const int channels, const int chunksize) {
     }
 }
 
-void Audio::loadMusic(const char *music_path) {
+void Audio::LoadMusic(const char *music_path) {
     /* Load music */
     music = Mix_LoadMUS(music_path);
 }
 
-void Audio::playMusic() {
+void Audio::PlayMusic() {
     /* Play music */
     int music_status = Mix_PlayMusic(music, -1);
 
@@ -24,12 +24,12 @@ void Audio::playMusic() {
     }
 }
 
-void Audio::changeVolume(const int music_volume) {
+void Audio::ChangeVolume(int music_volume) {
     /* Adjust music volume */
     Mix_VolumeMusic(music_volume);
 }
 
-void Audio::freeResources() {
+void Audio::FreeResources() {
     /* Free audio resources */
     Mix_FreeMusic(music);
     Mix_CloseAudio();

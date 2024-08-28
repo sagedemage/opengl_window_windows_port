@@ -13,17 +13,17 @@
 
 class Audio {
    public:
-    Audio(const int channels, const int chunksize);  // open audio
+    Audio(int channels, int chunksize);  // open audio
 
     // Methods
-    void loadMusic(const char *music_path);
-    void playMusic();
-    void changeVolume(const int music_volume);
-    void freeResources();
+    void LoadMusic(const char *music_path);
+    void PlayMusic();
+    static void ChangeVolume(int music_volume);
+    void FreeResources();
 
    private:
     // Variables
-    Mix_Music *music;
+    Mix_Music *music = nullptr;
 };
 
 #endif  // AUDIO_H
