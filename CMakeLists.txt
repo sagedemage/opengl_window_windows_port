@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.29)
 project(OpenglWindow)
 
 # Set the C++ Standard to compile against
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # Set C++ Flags
@@ -66,4 +66,3 @@ add_executable(${PROJECT_NAME}
 )
 
 target_link_libraries(${PROJECT_NAME} ${GLEW_LIBS} ${GLEW_LIBRARIES} ${OPENGL_LIBRARIES} ${GLFW_LIBS} ${SDL2_LIBRARIES} ${SDL2_MIXER_LIB})
-
