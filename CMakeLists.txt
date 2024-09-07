@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.30)
+cmake_minimum_required(VERSION 3.29)
 # Set the project Name
 project(OpenglWindow)
 
@@ -22,17 +22,17 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${OPTIMIZE_FLAG} ${WARNING_FLAGS}")
 # Set Directories for GLEW
 set(GLEW_INCLUDE_DIRS "C:\\vclib\\glew-2.1.0\\include")
 set(GLEW_LIB_DIR "C:\\vclib\\glew-2.1.0\\lib\\Release\\x64")
-set(GLEW_LIBS "-lglew32.lib"
-"-lglew32s.lib"
+set(GLEW_LIBS "glew32.lib"
+"glew32s.lib"
 )
 
 # Set Directories for GLFW
 set(GLFW_INCLUDE_DIRS "C:\\vclib\\glfw-3.4.bin.WIN64\\include")
 set(GLFW_LIB_DIR "C:\\vclib\\glfw-3.4.bin.WIN64\\lib-vc2022")
 
-set(GLFW_LIBS "-lglfw3.lib"
-"-lglfw3_mt.lib" 
-"-lglfw3dll.lib"
+set(GLFW_LIBS "glfw3.lib"
+"glfw3_mt.lib"
+"glfw3dll.lib"
 )
 
 # Set Directories for SDL2
