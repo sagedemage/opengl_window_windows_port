@@ -38,7 +38,6 @@ set(GLFW_LIBS "glfw3.lib"
 # Set Directories for SDL2
 set(SDL2_DIR "C:\\vclib\\SDL2-2.30.5\\cmake")
 set(SDL2_INCLUDE_DIRS "C:\\vclib\\SDL2-2.30.5\\include")
-set(SDL2_LIB_DIR "C:\\vclib\\SDL2-2.30.5\\lib\\x64")
 
 # Set Directories for SDL2_mixer
 set(SDL2_mixer_DIR "C:\\vclib\\SDL2_mixer-2.8.0\\cmake")
